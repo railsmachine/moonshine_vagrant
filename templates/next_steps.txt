@@ -20,6 +20,7 @@ Here's what you need to do next:
 * Having fun yet?
 * Edit config/environments/vagrant.rb and make sure you're not pulling anything from staging you don't need to (like an asset host).
 * Edit config/moonshine/vagrant.yml and set a domain (using the .rm TLD) you'll access the site on.
+* Edit config/database.yml and add a section for the new vagrant environment - it should talk to whichever host is running the database (probably db1.APPNAME.local.rm)
 * Now we should be ready to start everything: vagrant up
 * If everything starts up: cap vagrant deploy:setup - which will take a while.
 * Now you should do a cowboy deploy to the vagrant stage and see what happens (it sometimes take 2 or 3 deploys to get everything installed).
