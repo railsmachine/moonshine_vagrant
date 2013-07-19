@@ -79,6 +79,9 @@ namespace :vagrant_setup do
   task :generate_vagrant_capistrano do
     f = File.open("config/deploy/vagrant.generated.rb","w+")
     
+    f.puts "before 'deploy:update_code', 'cowboy:configure'"
+    f.puts ""
+    
     vagrant_servers.each do |server|
       line = "server '#{server[:hostname]}'"
       server[:roles].each do |r|
