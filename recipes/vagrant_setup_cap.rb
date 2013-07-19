@@ -18,7 +18,7 @@ namespace :vagrant_setup do
       prefix = server.host.split(".").first
       vagrant_server[:name] = prefix
       vagrant_server[:hostname] = "#{prefix}.#{app}.rm"
-      vagrant_server[:internal_hostname] = "#{prefix}.#{app}.local"
+      vagrant_server[:internal_hostname] = "#{prefix}.#{app}.local.rm"
       vagrant_server[:ip] = "192.168.50.#{ip}"
       vagrant_server[:internal_ip] = "10.0.10.#{ip}"
       vagrant_server[:roles] = []
