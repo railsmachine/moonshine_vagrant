@@ -1,0 +1,28 @@
+If you're seeing this message, that means you've successfully generated a bunch of files!  
+
+Here's what you need to do next:
+
+* Edit config/deploy.rb and add a new stage to 'set :stages' called "vagrant"
+* Since we don't want to stomp on existing files, everything we created has ".generated" in the middle of it.  Rename the following files:
+  * config/environments/vagrant.generated.rb => config/environments/vagrant.rb
+  * config/deploy/vagrant.generated.rb => config/deply/vagrant.rb
+  * config/moonshine/vagrant.generated.yml => config/moonshine/vagrant.yml
+  * Vagrantfile.generated => Vagrantfile
+* Install VirtualBox: http://virtualbox.org
+* You need to install Vagrant! http://vagrantup.com - Once it's installed:
+  * vagrant box add "lucid64" http://files.vagrantup.com/lucid64.box
+* Install dnsmasq. If you have Homebrew (and you should): brew install dnsmasq 
+  * Follow the instructions to start dnsmasq and get it to start at boot 
+  * You need to make 127.0.0.1 your FIRST DNS server. How you do that depends on your OS.
+  * We generated a file called local_dnsmasq.generated.txt. Cut and paste the contents of that file into your dnsmasq config file
+  * While you're in there, you should take the primary IP (either the ip of a single box or the haproxy ip address) and make up a domain name. Something like: address=/foo.rm/192.168.50.3 (using the correct IP obviously)
+  * Restart dnsmasq.
+* Having fun yet?
+* Edit config/environments/vagrant.rb and make sure you're not pulling anything from staging you don't need to (like an asset host).
+* Edit config/moonshine/vagrant.yml and set a domain (using the .rm TLD) you'll access the site on.
+* Now we should be ready to start everything: vagrant up
+* If everything starts up: cap vagrant deploy:setup - which will take a while.
+* Now you should do a cowboy deploy to the vagrant stage and see what happens (it sometimes take 2 or 3 deploys to get everything installed).
+* If it all worked, you should be able to go to the domain you set up above and it should look like an "empty" version of your app!
+
+Happy vagranting!
