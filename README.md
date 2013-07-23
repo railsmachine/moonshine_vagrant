@@ -75,3 +75,5 @@ If you need those instructions later, they're in vendor/plugins/moonshine_vagran
 * You'll probably need to change the names of the _servers arrays in config/moonshine/vagrant.yml.  They're built with the roles from capistrano, so you'll probably need to change "app_servers" to "application_servers", "db_servers" to "database_servers", etc.
 * You need to add the vagrant stage to config/deploy.rb.  The list of stages is usually at the top.
 * You need to add a vagrant section to config/database.yml pointed at the right IP address and/or local hostname (like, say, db1.APPNAME.local)
+
+Feature request? [Add it to the TODO List](https://github.com/railsmachine/moonshine_vagrant/wiki/TODO-List)!!
