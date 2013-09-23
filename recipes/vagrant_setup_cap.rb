@@ -161,13 +161,16 @@ namespace :vagrant_setup do
     f.puts '    vb.customize ["modifyvm", :id, "--natdnsproxy1", "on"]'
     f.puts '  end'
     f.puts ''
+    forwarded_port = 23022
     vagrant_servers.each do |server|
       f.puts "  config.vm.define '#{server[:name]}' do |guest|"
       f.puts "    guest.vm.hostname = '#{server[:hostname]}'"
       f.puts "    guest.vm.network :private_network, ip: '#{server[:internal_ip]}'"
       f.puts "    guest.vm.network :private_network, ip: '#{server[:ip]}'"
+      f.puts "    guest.vm.network :forwarded_port, guest: 22 ip: #{forwarded_port}"
       f.puts '  end'
       f.puts ''
+      forwarded_port += 1
     end
     f.puts 'end'
     f.close
