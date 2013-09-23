@@ -167,7 +167,7 @@ namespace :vagrant_setup do
       f.puts "    guest.vm.hostname = '#{server[:hostname]}'"
       f.puts "    guest.vm.network :private_network, ip: '#{server[:internal_ip]}'"
       f.puts "    guest.vm.network :private_network, ip: '#{server[:ip]}'"
-      f.puts "    guest.vm.network :forwarded_port, guest: 22 ip: #{forwarded_port}"
+      f.puts "    guest.vm.network :forwarded_port, guest: 22 host: #{forwarded_port}"
       f.puts '  end'
       f.puts ''
       forwarded_port += 1
