@@ -13,7 +13,7 @@ This is **brand new** so there are probably bugs (ok, there are SURELY bugs, ple
 * Some patience.
 * [VirualBox](http://virtualbox.org)
 * [Vagrant](http://vagrantup.com)
-* dnsmasq - If you use homebrew, <code>brew install dnsmasq</code>.  It's also available for almost all flavors of *nix.
+* dnsmasq - If you use homebrew, <code>brew install dnsmasq</code>.  It's also available for almost all flavors of \*nix.
 * You also need [moonshine_dnsmasq](http://github.com/railsmachine/moonshine_dnsmasq) and the resolv_conf moonshine recipe.  See below for configuration.
 * Update your moonshine plugins! We had to fix a few bugs in Moonshine and add a feature to moonshine_dnsmasq to get this to work. We'll probably end up finding bugs in other plugins the more we use this.
 
@@ -43,6 +43,26 @@ So you can ssh into all the boxes as the vagrant user w/out using a password and
 <pre><code>Host *.rm
   User vagrant
   IdentityFile ~/.vagrant.d/insecure_private_key</code></pre>
+
+### Vagrant + VMware
+
+[Vagrant + VMware](http://www.vagrantup.com/vmware) can provide significant
+performance increases over VirtualBox. If you have purchased the Vagrant+VWmare
+plugin it is possible ot use the VMware provider with moonshine_vagrant.
+
+1. Install the appropriate Vagrant+VMware plugin for your platform.
+2. Download the Ubuntu 10.04 basebox for VMware from the Opscode Bento
+   baseboxes and name it `lucid64`:
+
+<pre><code>
+    $ vagrant box add lucid64 http://opscode-vm-bento.s3.amazonaws.com/vagrant/vmware/opscode_ubuntu-10.04_chef-provisionerless.box
+</code></pre>
+
+3. Use the appropriate VMware provider for your platform when starting your Vagrant VMs:
+
+<pre><code>
+    $ vagrant up --provider=vmware_fusion # Use vmware_fusion for Mac OS X
+</code></pre>
 
 ## Installation
 
