@@ -97,3 +97,7 @@ If you need those instructions later, they're in vendor/plugins/moonshine_vagran
 * You need to add a vagrant section to config/database.yml pointed at the right IP address and/or local hostname (like, say, db1.APPNAME.local)
 
 Feature request? [Add it to the TODO List](https://github.com/railsmachine/moonshine_vagrant/wiki/TODO-List)!!
+
+***
+
+Unless otherwise specified, all content copyright &copy; 2014, [Rails Machine, LLC](http://railsmachine.com)
