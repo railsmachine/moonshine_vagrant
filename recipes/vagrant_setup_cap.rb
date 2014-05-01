@@ -84,7 +84,7 @@ namespace :vagrant_setup do
     f.puts "task :exclude_vagrant do"
     f.puts "  set :copy_exclude, (fetch(:copy_exclude, []) + ['.vagrant/*'])"
     f.puts "end"
-    f.puts "after 'cowboy:configure', 'exclude_vagrant"
+    f.puts "after 'cowboy:configure', 'exclude_vagrant'"
     f.puts ""
 
     vagrant_servers.each do |server|
