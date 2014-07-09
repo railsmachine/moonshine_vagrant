@@ -14,7 +14,7 @@ Here's what you need to do next:
 * Install dnsmasq. If you have Homebrew (and you should): brew install dnsmasq 
   * Follow the instructions to start dnsmasq and get it to start at boot 
   * You need to make 127.0.0.1 your FIRST DNS server. How you do that depends on your OS.
-  * We generated a file called local_dnsmasq.generated.txt. Cut and paste the contents of that file into your dnsmasq config file
+  * We generated a file called config/vagrant/local_dnsmasq.generated.txt. Cut and paste the contents of that file into your dnsmasq config file
   * While you're in there, you should take the primary IP (either the ip of a single box or the haproxy ip address) and make up a domain name. Something like: address=/foo.rm/192.168.50.3 (using the correct IP obviously)
   * Restart dnsmasq.
 * Having fun yet?

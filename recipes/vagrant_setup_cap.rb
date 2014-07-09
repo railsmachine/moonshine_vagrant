@@ -38,7 +38,7 @@ namespace :vagrant_setup do
   end
 
   task :generate_local_dnsmasq do
-    f = File.open("local_dnsmasq.generated.txt","w+")
+    f = File.open("config/vagrant/local_dnsmasq.generated.txt","w+")
     
     vagrant_servers.each do |server|
       f.puts "# #{server[:name]}"
