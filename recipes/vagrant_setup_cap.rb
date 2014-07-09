@@ -51,7 +51,7 @@ namespace :vagrant_setup do
   end
   
   task :generate_bootstrap_dnsmasq do
-    f = File.open("tmp/dnsmasq.conf","w+")
+    f = File.open("config/vagrant/dnsmasq.conf","w+")
     f.puts <<-eos
     listen-address = 127.0.0.1
     all-servers
@@ -69,11 +69,15 @@ namespace :vagrant_setup do
   
   task :generate_bootstrap_resolv do
     # creating resolv.conf
-    f = File.open("tmp/resolv.conf","w+")
+    f = File.open("config/vagrant/resolv.conf","w+")
     f.puts "nameserver 127.0.0.1"
     f.puts "nameserver 8.8.8.8"
     f.puts "nameserver 8.8.4.4"
     f.close
+  end
+  
+  task :create_vagrant_config_directory do
+    run_locally "mkdir -p config/vagrant"
   end
   
   task :generate_vagrant_capistrano do
@@ -138,6 +142,7 @@ namespace :vagrant_setup do
   desc "Creates a new Vagrant stage based on existing stage."
   task :create_vagrant_stage do
     vagrant_servers_from_stage
+    create_vagrant_config_directory
     generate_vagrantfile
     generate_local_dnsmasq
     generate_bootstrap_dnsmasq
