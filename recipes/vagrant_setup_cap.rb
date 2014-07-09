@@ -171,6 +171,11 @@ namespace :vagrant_setup do
     f.puts '    vb.customize ["modifyvm", :id, "--natdnsproxy1", "on"]'
     f.puts '  end'
     f.puts ''
+    f.puts '  config.vm.provider "vmware_fusion" do |v|'
+    f.puts '    v.vmx["memsize"] = "512"'
+    f.puts '    v.vmx["numvcpus"] = "1"'
+    f.puts '  end'
+    f.puts ''
     forwarded_port = 23022
     vagrant_servers.each do |server|
       f.puts "  config.vm.define '#{server[:name]}' do |guest|"
